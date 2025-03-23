@@ -26,8 +26,71 @@
 </head>
 <body>
   <br />
-  This is a template for Onsen UI app.
+    <!-- Set up our app to have a sidemenu (swipable) 
+      Note: the whole app will have a side menu,
+      so it must exist in an <ons-splitter>
+        and use <ons-splitter-side> and <ons-splitter-content>
+    
+    -->
+    <ons-splitter>
+      <!-- All side menu(s) exist in <ons-splitter-side> -->
+      <ons-splitter-side collapse id="menuParent">
+        <ons-page>
+          <ons-list-item><ons-icon icon="md-twitter"></ons-icon> Button 1</ons-list-item>
+          <ons-list-item>Button 2</ons-list-item>
+          <ons-list-item onclick="pageLoader('profile.html');">My Profile</ons-list-item>
+        </ons-page>
+      </ons-splitter-side>
+      <ons-splitter-side collapse id="menuChild">
+        <ons-page>
+          <ons-list-item>Child 1</ons-list-item>
+        </ons-page>
+      </ons-splitter-side>
+      <!-- TO-DO: Complete the ADMIN menu -->
+      <ons-splitter-side collapse id="menuAdmin">
+        <ons-page>
+          <ons-list-item>Child 1</ons-list-item>
+        </ons-page>
+      </ons-splitter-side>
 
-  <script rel="js/scripts.js"></script>
+      <!-- All main content exists in <ons-splitter-content> -->
+      <ons-splitter-content>
+        <!-- A blank "container" for loading the right screen at the right time -->
+        <ons-navigator id="appNav"></ons-navigator>
+
+        <!-- Every screen of our app, will be a <template>
+          loaded into <ons-navigator> as needed 
+            NOTE: it's different than the rest 🙄 -->
+        <template id="welcome.html">
+          <ons-page style="text-align: center;">
+            <h1>MyApp</h1>
+            <p>
+                Log In<br>
+                <ons-input modifier="underbar" type="email" placeholder="john@smith.com" id="loginEmail"></ons-input><br>
+                <ons-input moifier="underbar" type="password" placeholder="DogCat88" id="loginPWD"></ons-input><br>
+                <ons-button onclick="pageLoader('catalog.html');">Log In</ons-button>
+            </p>
+            <hr>
+            <p>
+                Don't have an account?<br>
+                <ons-button onclick="pageLoader('signup.html');">Sign Up</ons-button>
+            </p>
+            <p><img src="logo.jpg"></p>
+          </ons-page>
+        </template>
+        <template id="catalog.html">
+            <ons-page>
+                <p>cataloge</p>
+            </ons-page>
+        </template>
+        <template id="signup.html">
+            <ons-page>
+                <h1>Sign Up</h1>
+            </ons-page>
+        </template>
+      </ons-splitter-content>
+    </ons-splitter>
+
+  <script src="js/scripts.js"></script>
 </body>
 </html>
