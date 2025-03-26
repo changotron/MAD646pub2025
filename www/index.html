@@ -62,7 +62,7 @@
           loaded into <ons-navigator> as needed 
             NOTE: it's different than the rest 🙄 -->
         <template id="welcome.html">
-          <ons-page style="text-align: center;">
+          <ons-page class="centerContent">
             <h1>MyApp</h1>
             <p>
                 Log In<br>
@@ -71,10 +71,10 @@
                 <ons-button onclick="pageLoader('catalog.html');">Log In</ons-button>
             </p>
             <hr>
-            <p>
+            <p> 
                 Don't have an account?<br>
                 <ons-button onclick="pageLoader('signup.html');">Sign Up</ons-button>
-            </p>
+            </p> 
             <p><img src="logo.jpg"></p>
           </ons-page>
         </template>
@@ -85,7 +85,25 @@
         </template>
         <template id="signup.html">
             <ons-page>
-                <h1>Sign Up</h1>
+                <!-- top toolbar/nav area -->
+                <ons-toolbar>
+                    <div class="left"><ons-back-button></ons-back-button></div>
+                    <div class="center">Sign Up</div>
+                </ons-toolbar>
+                <div class="centerContent">
+                    
+                    <!-- Sign up "form" to take user data for an account -->
+                    <ons-input modifier="underbar" placeholder="hodad@pizza.com" type="email" id="signupEmail"></ons-input><br>
+                    <ons-input modifier="underbar" placeholder="Password" type="password" id="signupPWD"></ons-input><br>
+                    <ons-input modifier="underbar" placeholder="Confirm Password" type="password" id="signupPWDconf"></ons-input><br>
+                    Are you at least 13?<br>
+                    <ons-radio name="signupAge" value="" id="signupAgeTrue">Yes: </ons-radio>
+                    <ons-radio name="signupAge" value="" id="signupAgeFalse">No: </ons-radio><br>
+                    <p>
+                        <ons-button onclick="fnClearSignup();" id="signupClear">Clear</ons-button>
+                        <ons-button id="signupCreate">Create</ons-button>
+                    </p>
+                </div>
             </ons-page>
         </template>
       </ons-splitter-content>
